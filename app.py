@@ -207,7 +207,7 @@ with gr.Blocks(
                         file_types=[".pdf"],
                         type="filepath"
                     )
-                    upload_btn = gr.Button("📤 Yükle ve İndeksle", variant="primary")
+                    upload_btn = gr.Button("Yükle ve İndeksle", variant="primary")
                     upload_status = gr.Textbox(
                         label="Yükleme Durumu",
                         lines=8,
@@ -221,9 +221,9 @@ with gr.Blocks(
                         lines=8,
                         interactive=False
                     )
-                    refresh_stats_btn = gr.Button("🔄 İstatistikleri Yenile")
+                    refresh_stats_btn = gr.Button("İstatistikleri Yenile")
 
-            gr.Markdown("### 💬 Soru-Cevap")
+            gr.Markdown("### Soru-Cevap")
 
             chatbot = gr.Chatbot(
                 label="DoctorFollow Asistan",
