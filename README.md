@@ -86,14 +86,14 @@ python app.py
 
 Open your browser to: **http://localhost:7860**
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Uploading a PDF
 
-1. Click on **"📄 Doküman Arama"** tab
+1. Click on **"Doküman Arama"** tab
 2. Click **"PDF Dosyası Yükle"**
 3. Select your Turkish medical PDF
-4. Click **"📤 Yükle ve İndeksle"**
+4. Click **"Yükle ve İndeksle"**
 5. Wait for indexing to complete (~1-2 min for 50-page PDF)
 
 ### Asking Questions
@@ -116,10 +116,10 @@ The system will respond with **cited answers** like:
 
 ### Using the Dose Calculator
 
-1. Go to **"💊 Doz Hesaplama"** tab
+1. Go to **"Doz Hesaplama"** tab
 2. Select drug: Amoksisilin, Parasetamol, or İbuprofen
 3. Enter patient weight (kg) and age (years)
-4. Click **"🧮 Dozu Hesapla"**
+4. Click **"Dozu Hesapla"**
 
 Example:
 - Drug: Amoksisilin
@@ -127,7 +127,7 @@ Example:
 - Age: 7 years
 - **Result:** 312.5 mg, twice daily
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 doctorfollow-demo/
@@ -143,7 +143,7 @@ doctorfollow-demo/
     └── README.md         # Data folder guide
 ```
 
-## 🧪 Testing
+## Testing
 
 Test the dose calculator:
 
@@ -157,7 +157,7 @@ Test the RAG system (requires AWS credentials):
 python rag.py
 ```
 
-## 🚢 Deploying to Hugging Face Spaces
+## Deploying to Hugging Face Spaces
 
 ### 1. Create Space
 
@@ -188,7 +188,7 @@ In Space Settings → Repository Secrets, add:
 
 Wait 5-10 minutes for build. Your app will be live!
 
-## 🎯 Key Features Explained
+## Key Features Explained
 
 ### 1. Hybrid Search (BM25 + Semantic)
 
@@ -217,7 +217,7 @@ Based on RAG best practices:
 - Maximum dose warnings
 - Clinical disclaimer on all calculations
 
-## ⚠️ Important Disclaimers
+## Important Disclaimers
 
 **Medical Disclaimer:**
 This system is for **demonstration and educational purposes only**.
@@ -231,12 +231,12 @@ This system is for **demonstration and educational purposes only**.
 - Only use publicly available medical guidelines
 - Do not upload patient records or confidential data
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### AWS Bedrock Error
 
 ```
-⚠️ AWS Bedrock bağlantısı mevcut değil
+AWS Bedrock connection not available
 ```
 
 **Solution:**
@@ -247,7 +247,7 @@ This system is for **demonstration and educational purposes only**.
 ### Model Download Slow
 
 ```
-📦 Loading embedding model (e5-small-v2)...
+Loading embedding model (e5-small-v2)...
 ```
 
 **Solution:**
@@ -256,7 +256,7 @@ First run downloads ~400MB model. Subsequent runs are fast.
 ### PDF Extraction Failed
 
 ```
-❌ Hata: PDF extraction failed
+Error: PDF extraction failed
 ```
 
 **Solution:**
@@ -264,23 +264,23 @@ First run downloads ~400MB model. Subsequent runs are fast.
 - Use text-based PDFs (not scanned images)
 - Try a smaller PDF first
 
-## 📊 Performance
+## Performance
 
 - **PDF Indexing:** ~1-2 minutes for 50-page document
 - **Query Response:** ~2-4 seconds with Bedrock
 - **Memory Usage:** ~2GB RAM (embedding model)
 - **Concurrent Users:** Supports multiple users on free tier
 
-## 🔄 Development Timeline
+## Development Timeline
 
 This project was built in **2 hours** following the plan in [To-Dos.txt](To-Dos.txt):
 
-- ⏱️ **Setup (15 min):** Environment, dependencies
-- ⏱️ **Core Development (60 min):** RAG system, dose calculator
-- ⏱️ **UI Development (30 min):** Gradio interface
-- ⏱️ **Testing (15 min):** Local testing, bug fixes
+- **Setup (15 min):** Environment, dependencies
+- **Core Development (60 min):** RAG system, dose calculator
+- **UI Development (30 min):** Gradio interface
+- **Testing (15 min):** Local testing, bug fixes
 
-## 🤝 Contributing
+## Contributing
 
 This is a demo project, but contributions are welcome!
 
@@ -289,23 +289,23 @@ This is a demo project, but contributions are welcome!
 3. Make your changes
 4. Submit a pull request
 
-## 📝 License
+## License
 
 MIT License - See LICENSE file for details
 
-## 👥 Authors
+## Authors
 
 **DoctorFollow Team**
 - Built as a 2-hour demo project
 - Showcasing RAG capabilities for medical search
 
-## 🔗 Resources
+## Resources
 
 - [AWS Bedrock Documentation](https://docs.aws.amazon.com/bedrock/)
 - [Gradio Documentation](https://gradio.app/docs/)
 - [T.C. Sağlık Bakanlığı](https://hsgm.saglik.gov.tr/)
 
-## 📧 Contact
+## Contact
 
 For questions or feedback, please open an issue on GitHub.
 
@@ -313,4 +313,4 @@ For questions or feedback, please open an issue on GitHub.
 
 **Version:** 1.0.0
 **Last Updated:** 2025
-**Status:** Demo Project ✅
+**Status:** Demo Project
