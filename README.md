@@ -31,7 +31,7 @@ A demonstration project showcasing an intelligent medical document search system
 - AWS Account with Bedrock access
 - 4GB+ RAM (for embedding model)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone and Setup
 
