@@ -24,7 +24,7 @@ conversation_history = []
 
 def upload_pdf(file) -> str:
     """
-    Handle PDF upload and indexing.
+    handles PDF upload and ingestion.
 
     Args:
         file: Uploaded file object from Gradio
