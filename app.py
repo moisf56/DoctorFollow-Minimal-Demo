@@ -33,7 +33,7 @@ def upload_pdf(file) -> str:
         Status message
     """
     if file is None:
-        return "❌ Lütfen bir PDF dosyası seçin."
+        return "[ERROR] Lütfen bir PDF dosyası seçin."
 
     try:
         # Get file path
@@ -43,21 +43,21 @@ def upload_pdf(file) -> str:
         result = rag_system.ingest_pdf(pdf_path)
 
         if 'error' in result:
-            return f"❌ Hata: {result['error']}"
+            return f"[ERROR] Hata: {result['error']}"
 
         # Success message
-        return f"""✅ PDF başarıyla yüklendi ve indekslendi!
+        return f"""[SUCCESS] PDF başarıyla yüklendi ve indekslendi!
 
-📊 **İstatistikler:**
+**İstatistikler:**
 - Dosya: {result['document_name']}
 - Toplam metin parçası: {result['total_chunks']}
 - Toplam karakter: {result['total_characters']:,}
 - Embedding boyutu: {result['embedding_dimensions']}
 
-Artık sorularınızı sorabilirsiniz! 🎯"""
+Artık sorularınızı sorabilirsiniz."""
 
     except Exception as e:
-        return f"❌ Hata: {str(e)}"
+        return f"[ERROR] Hata: {str(e)}"
 
 
 def chat_interface(message: str, history: List[Tuple[str, str]]) -> str:
@@ -94,7 +94,7 @@ def chat_interface(message: str, history: List[Tuple[str, str]]) -> str:
 
     # Add validation info if citations are invalid
     if not result['citations_valid'] and result.get('citation_ids'):
-        response += f"\n\n⚠️ {result['validation_message']}"
+        response += f"\n\n[WARNING] {result['validation_message']}"
 
     # Update conversation history
     conversation_history.append({
@@ -118,38 +118,38 @@ def calculate_dose_interface(drug: str, weight: float, age: float) -> str:
         Formatted dose calculation result
     """
     if not drug or not weight or not age:
-        return "❌ Lütfen tüm alanları doldurun."
+        return "[ERROR] Lütfen tüm alanları doldurun."
 
     try:
         result = calculate_dose(drug, weight, age)
 
         # Format output
-        output = f"""## 💊 {result.drug_name}
+        output = f"""## {result.drug_name}
 
-### 📏 Hesaplanan Doz
+### Hesaplanan Doz
 **{result.dose}**
 
-### ⏰ Kullanım Sıklığı
+### Kullanım Sıklığı
 {result.frequency}
 
-### 🧮 Hesaplama Yöntemi
+### Hesaplama Yöntemi
 {result.calculation_method}
 
-### ⚠️ Uyarılar ve Notlar
+### Uyarılar ve Notlar
 """
         for warning in result.warnings:
             output += f"- {warning}\n"
 
         # Safety indicator
         if result.is_safe:
-            output += "\n✅ **Güvenlik Durumu:** Doz güvenli aralıkta görünüyor"
+            output += "\n**Güvenlik Durumu:** Doz güvenli aralıkta görünüyor"
         else:
-            output += "\n⚠️ **Güvenlik Durumu:** Lütfen hekim konsültasyonu yapın"
+            output += "\n**Güvenlik Durumu:** [WARNING] Lütfen hekim konsültasyonu yapın"
 
         return output
 
     except Exception as e:
-        return f"❌ Hata: {str(e)}"
+        return f"[ERROR] Hata: {str(e)}"
 
 
 def get_system_stats() -> str:
@@ -157,14 +157,14 @@ def get_system_stats() -> str:
     stats = rag_system.get_stats()
 
     if not stats['indexed']:
-        return "📊 **Sistem Durumu:** Henüz PDF yüklenmedi"
+        return "**Sistem Durumu:** Henüz PDF yüklenmedi"
 
-    return f"""📊 **Sistem İstatistikleri**
+    return f"""**Sistem İstatistikleri**
 
 - Yüklü Doküman: {stats['document_name']}
 - İndekslenmiş Parça: {stats['total_chunks']}
 - Toplam Sorgu: {stats['total_queries']}
-- Durum: ✅ Aktif
+- Durum: Aktif
 """
 
 
@@ -182,16 +182,16 @@ with gr.Blocks(
 ) as demo:
 
     gr.Markdown("""
-    # 🏥 DoctorFollow Medical Search Demo
+    # DoctorFollow Medical Search Demo
 
-    **Türkçe Tıbbi Doküman Arama ve Doz Hesaplama Sistemi**
+    **Turkish Medical Document Search and Dose Calculation System**
 
-    Bu demo, tıbbi PDF'lerde akıllı arama ve pediatrik ilaç dozu hesaplama özellikleri sunar.
+    This demo provides intelligent search in medical PDFs and pediatric drug dose calculation features.
     """)
 
     with gr.Tabs():
         # Tab 1: PDF Upload & Search
-        with gr.Tab("📄 Doküman Arama"):
+        with gr.Tab("Doküman Arama"):
             gr.Markdown("""
             ### PDF Yükleme ve Arama
 
