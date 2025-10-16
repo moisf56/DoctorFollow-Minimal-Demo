@@ -1,19 +1,19 @@
-# 🏥 DoctorFollow Medical Search Demo
+# DoctorFollow Medical Search Demo
 
-**Türkçe Tıbbi Doküman Arama ve Doz Hesaplama Sistemi**
+**Turkish Medical Document Search and Dose Calculation System**
 
-A 2-hour demo project showcasing an intelligent medical document search system with RAG (Retrieval-Augmented Generation) and pediatric dose calculation for Turkish healthcare professionals.
+A demonstration project showcasing an intelligent medical document search system with RAG (Retrieval-Augmented Generation) and pediatric dose calculation for Turkish healthcare professionals.
 
-## ✨ Features
+## Features
 
-- 📄 **PDF Upload & Indexing** - Upload Turkish medical PDFs for instant searchability
-- 🔍 **Hybrid Search** - BM25 (lexical) + Semantic search with RRF fusion
-- 💬 **Conversational Memory** - Context-aware follow-up questions
-- 📚 **Source Citations** - Vancouver-style medical citations [1], [2], [3]
-- 💊 **Dose Calculator** - Pediatric drug dosage calculator with safety checks
-- 🇹🇷 **Turkish Optimized** - Special handling for Turkish medical terminology
+- **PDF Upload & Indexing** - Upload Turkish medical PDFs for instant searchability
+- **Hybrid Search** - BM25 (lexical) + Semantic search with RRF fusion
+- **Conversational Memory** - Context-aware follow-up questions
+- **Source Citations** - Vancouver-style medical citations [1], [2], [3]
+- **Dose Calculator** - Pediatric drug dosage calculator with safety checks
+- **Turkish Optimized** - Special handling for Turkish medical terminology
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component | Technology | Cost |
 |-----------|-----------|------|
