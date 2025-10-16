@@ -5,8 +5,6 @@ This folder is for storing Turkish medical PDF documents that will be indexed by
 
 ## Recommended Sample Documents
 
-For testing this demo, download Turkish medical guidelines from official sources:
-
 ### T.C. Sağlık Bakanlığı (Ministry of Health) Resources
 
 1. **Antibiyotik Kullanım Kılavuzu**
@@ -28,13 +26,6 @@ For testing this demo, download Turkish medical guidelines from official sources
 - **Content:** Medical guidelines, protocols, drug information
 - **Size:** Recommended < 10MB for fast processing
 
-## How to Use
-
-1. Download a Turkish medical PDF from the sources above
-2. Place the PDF file in this `sample_data/` folder
-3. Launch the DoctorFollow app: `python app.py`
-4. Use the PDF upload interface to index the document
-5. Start asking questions!
 
 ## Example Questions to Test
 
