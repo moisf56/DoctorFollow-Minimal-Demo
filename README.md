@@ -23,9 +23,9 @@ A demonstration project showcasing an intelligent medical document search system
 | **Interface** | Gradio | Free |
 | **Deployment** | Hugging Face Spaces | Free |
 
-**Total Cost: $0** 🎉
+**Total Cost:** $0
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.9+
 - AWS Account with Bedrock access
