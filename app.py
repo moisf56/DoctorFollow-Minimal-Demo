@@ -239,7 +239,7 @@ with gr.Blocks(
                 )
                 send_btn = gr.Button("Gönder", variant="primary", scale=1)
 
-            clear_btn = gr.Button("🗑️ Konuşmayı Temizle")
+            clear_btn = gr.Button("Konuşmayı Temizle")
 
             gr.Markdown("""
             **Örnek Sorular:**
@@ -249,7 +249,7 @@ with gr.Blocks(
             """)
 
         # Tab 2: Dose Calculator
-        with gr.Tab("💊 Doz Hesaplama"):
+        with gr.Tab("Doz Hesaplama"):
             gr.Markdown("""
             ### Pediatrik İlaç Doz Hesaplayıcı
 
@@ -277,7 +277,7 @@ with gr.Blocks(
                         minimum=0,
                         maximum=18
                     )
-                    calc_btn = gr.Button("🧮 Dozu Hesapla", variant="primary")
+                    calc_btn = gr.Button("Dozu Hesapla", variant="primary")
 
                 with gr.Column():
                     dose_output = gr.Markdown(
@@ -287,16 +287,16 @@ with gr.Blocks(
 
             gr.Markdown("""
             ---
-            **⚠️ UYARI:** Bu hesaplama yalnızca eğitim ve referans amaçlıdır.
+            **[WARNING] UYARI:** Bu hesaplama yalnızca eğitim ve referans amaçlıdır.
             Gerçek hasta tedavisi için mutlaka hekim konsültasyonu yapılmalıdır.
             """)
 
         # Tab 3: About
-        with gr.Tab("ℹ️ Hakkında"):
+        with gr.Tab("Hakkında"):
             gr.Markdown("""
             ## DoctorFollow Medical Search Demo
 
-            ### 🎯 Özellikler
+            ### Özellikler
 
             - **Hibrit Arama:** BM25 (lexical) + Semantic (e5-small-v2) arama
             - **Kaynak Atıfları:** Vancouver tarzı tıbbi atıflar [1], [2], [3]
@@ -304,7 +304,7 @@ with gr.Blocks(
             - **Doz Hesaplama:** Pediatrik ilaç dozları güvenlik kontrolüyle
             - **Türkçe Optimizasyonu:** Türkçe tıbbi terimler için optimize edilmiş
 
-            ### 🛠️ Teknoloji
+            ### Teknoloji
 
             - **LLM:** AWS Bedrock Llama 3.1 8B Instruct
             - **Embeddings:** intfloat/e5-small-v2 (local)
@@ -312,20 +312,20 @@ with gr.Blocks(
             - **Interface:** Gradio
             - **Cost:** $0 (AWS Free Tier + Local Models)
 
-            ### 📚 Kaynak Format
+            ### Kaynak Format
 
             Bu sistem şu formatları destekler:
             - T.C. Sağlık Bakanlığı Kılavuzları (PDF)
             - Tıbbi protokoller ve yönergeler
             - Türkçe tıbbi literatür
 
-            ### 🔒 Güvenlik
+            ### Güvenlik
 
             - Tüm hesaplamalar referans amaçlıdır
             - Gerçek tedavi için hekim konsültasyonu gereklidir
             - Sistem sadece sağlanan dokümanlardaki bilgileri kullanır
 
-            ### 👨‍💻 Geliştirici
+            ### Geliştirici
 
             DoctorFollow Team - 2 Hour Demo Project
 
@@ -381,10 +381,10 @@ with gr.Blocks(
 
 # Launch app
 if __name__ == "__main__":
-    print("🚀 Launching DoctorFollow Medical Search Demo...")
-    print("📍 Local URL: http://localhost:7860")
-    print("🌍 Public URL will be generated if share=True")
-    print("\n⚠️  Make sure your .env file contains valid AWS credentials!\n")
+    print("Launching DoctorFollow Medical Search Demo...")
+    print("Local URL: http://localhost:7860")
+    print("Public URL will be generated if share=True")
+    print("\n[WARNING] Make sure your .env file contains valid AWS credentials!\n")
 
     demo.launch(
         server_name="0.0.0.0",

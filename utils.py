@@ -238,9 +238,9 @@ def format_sources_with_citations(chunks: List[str],
         Formatted sources string (in Turkish)
     """
     if not chunks:
-        return "\n\n📚 **Kaynaklar:** Kaynak bulunamadı."
+        return "\n\n**Kaynaklar (Sources):** Kaynak bulunamadı."
 
-    formatted = "\n\n📚 **Kaynaklar:**\n\n"
+    formatted = "\n\n**Kaynaklar (Sources):**\n\n"
 
     # Display sources with numbering
     display_chunks = chunks[:max_display]
@@ -249,8 +249,8 @@ def format_sources_with_citations(chunks: List[str],
         # Truncate long chunks for readability
         display_chunk = chunk[:250] + "..." if len(chunk) > 250 else chunk
 
-        # Add checkmark if this source was cited
-        used_indicator = "✓ " if citation_ids and i in citation_ids else ""
+        # Add indicator if this source was cited
+        used_indicator = "[CITED] " if citation_ids and i in citation_ids else ""
 
         formatted += f"**[{i}]** {used_indicator}{display_chunk}\n\n"
 
