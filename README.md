@@ -28,8 +28,8 @@ A demonstration project showcasing an intelligent medical document search system
 ## Prerequisites
 
 - Python 3.9+
-- AWS Account with Bedrock access
-- 4GB+ RAM (for embedding model)
+- AWS Account for Bedrock access
+- 4GB+ RAM (for embedding model / E5-small-multilingual)
 
 ## Quick Start
 
@@ -40,7 +40,7 @@ git clone <your-repo-url>
 cd DoctorFollow-Minimal-Demo
 
 # Create virtual environment
-python -m venv venv
+python -m venv DoctorFollow
 
 # Activate (Windows)
 venv\Scripts\activate
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 
 ```bash
 # Copy the example env file
-copy .env.example .env  # Windows
+copy .env.example DoctorFollow  # Windows
 # OR
 cp .env.example .env    # Mac/Linux
 
