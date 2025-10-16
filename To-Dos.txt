@@ -1,0 +1,125 @@
+DOCTORFOLLOW MEDICAL SEARCH - 2 HOUR DEMO TODO
+
+=== SETUP (15 min) ===
+[ ] Create project folder: doctorfollow-demo
+[ ] Create venv: python -m venv venv
+[ ] Activate: venv\Scripts\activate
+[ ] Create requirements.txt with:
+    - gradio==4.44.0
+    - boto3==1.35.0
+    - sentence-transformers==3.2.1
+    - rank-bm25==0.2.2
+    - PyPDF2==3.0.1
+    - pydantic==2.9.2
+    - python-dotenv==1.0.0
+    - numpy==1.26.4
+    - scikit-learn==1.5.2
+[ ] Install: pip install -r requirements.txt
+[ ] Create .env file with AWS credentials:
+    AWS_ACCESS_KEY_ID=your_key
+    AWS_SECRET_ACCESS_KEY=your_secret
+    AWS_DEFAULT_REGION=us-east-1
+
+=== FILES TO CREATE (60 min) ===
+[ ] utils.py - Helper functions
+    - clean_text(text)
+    - chunk_text(text, size=500, overlap=50)
+    - cosine_similarity(a, b)
+    - rrf_fusion(bm25_scores, semantic_scores)
+    - validate_citations(answer)
+
+[ ] dose_calculator.py - Drug dosage calculator
+    - calc_amoxicillin_dose(weight_kg, age_years)
+    - calculate_dose(drug, weight, age) - main function
+    - Return: dose, warnings, calculation method
+
+[ ] rag.py - Core RAG system
+    - Class: MedicalRAG
+    - __init__(): Load e5-small, connect Bedrock
+    - ingest_pdf(path): Extract → chunk → embed → index
+    - hybrid_search(query, history): BM25 + semantic + RRF
+    - generate_answer(query, docs, history): LLM with citations
+    - ask(query, history): Main pipeline
+
+[ ] app.py - Gradio interface
+    - upload_pdf(file): Handle PDF upload
+    - chat_interface(message, history): Main chat with memory
+    - calculate_dose_interface(drug, weight, age): Dose UI
+    - gr.Blocks() with:
+      * PDF upload section
+      * ChatInterface for Q&A
+      * Dose calculator form
+      * Stats display
+
+=== TESTING (15 min) ===
+[ ] Download Turkish medical PDF to sample_data/
+    Recommended: T.C. Sağlık Bakanlığı Antibiyotik Kılavuzu
+    URL: https://hsgm.saglik.gov.tr/
+[ ] Test locally: python app.py
+[ ] Test upload PDF
+[ ] Test search: "Çocuklarda parasetamol dozajı nedir?"
+[ ] Test follow-up: "Yan etkileri nelerdir?"
+[ ] Test dose calc: Amoksisilin, 25kg, 7 years
+[ ] Check citations appear [Kaynak 1], [Kaynak 2]
+
+=== DEPLOY TO HF SPACES (30 min) ===
+[ ] Create account: huggingface.co
+[ ] Create new Space:
+    - Name: doctorfollow-demo
+    - SDK: Gradio
+    - Hardware: CPU Basic (free)
+[ ] Upload files:
+    - app.py
+    - rag.py
+    - utils.py
+    - dose_calculator.py
+    - requirements.txt
+    - README.md (optional)
+[ ] Add secrets in Space Settings:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_DEFAULT_REGION
+[ ] Wait 5-10 min for build
+[ ] Test public URL
+
+=== DEMO PREP (10 min) ===
+[ ] Prepare demo script:
+    1. Upload PDF (show indexing)
+    2. Ask: "Çocuklarda parasetamol dozajı?"
+    3. Follow-up: "Bu dozajı kaç saatte bir?"
+    4. Show citations
+    5. Calculate dose: Amoksisilin, 25kg, 7yr
+    6. Highlight: Hybrid search, memory, safety
+[ ] Test on different device/browser
+[ ] Have backup (local demo) ready
+
+=== KEY FEATURES TO SHOW CEO ===
+✓ PDF upload & instant indexing
+✓ Cited answers with sources
+✓ Conversational memory (context aware)
+✓ Dose calculator with validation
+✓ Hybrid search (BM25 + Semantic)
+✓ Safety warnings
+✓ All in 2 hours, $0 cost
+
+=== QUICK REFERENCE ===
+Tech Stack:
+- LLM: AWS Bedrock Llama 3.1 8B (free tier)
+- Embeddings: e5-small-v2 (local, free)
+- Search: BM25 + Semantic with RRF fusion
+- Interface: Gradio ChatInterface
+- Deploy: Hugging Face Spaces (free)
+
+File Structure:
+doctorfollow-demo/
+├── app.py (Gradio UI)
+├── rag.py (RAG core)
+├── utils.py (helpers)
+├── dose_calculator.py (drug calc)
+├── requirements.txt
+├── .env
+└── sample_data/kilavuz.pdf
+
+Total Time: 2 hours
+Total Cost: $0
+Demo Length: 10-12 minutes
