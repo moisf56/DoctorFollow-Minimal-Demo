@@ -138,7 +138,14 @@ if __name__ == "__main__":
     # Test with Pediatrics PDF
     print("=== LangChain PDF Ingestion Test ===\n")
 
-    pdf_path = "data/Nelson-essentials-of-pediatrics-233-282.pdf"
+    # Use absolute path relative to testing directory
+    testing_dir = Path(__file__).parent.parent
+    pdf_path = testing_dir / "data" / "Nelson-essentials-of-pediatrics-233-282.pdf"
+
+    if not pdf_path.exists():
+        print(f"[ERROR] PDF not found at: {pdf_path}")
+        print(f"[INFO] Please ensure the PDF is in: testing/data/")
+        exit(1)
 
     # Initialize
     ingestion = MedicalPDFIngestion(
@@ -147,7 +154,7 @@ if __name__ == "__main__":
     )
 
     # Process PDF
-    chunks = ingestion.ingest_pdf(pdf_path)
+    chunks = ingestion.ingest_pdf(str(pdf_path))
 
     # Show sample chunks
     print(f"\n--- Sample Chunks ---")
