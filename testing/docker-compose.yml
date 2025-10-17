@@ -1,8 +1,6 @@
 # Docker Compose for DoctorFollow Medical Search Agent
 # Infrastructure: OpenSearch + PostgreSQL (pgvector) + Neo4j
 
-version: '3.8'
-
 services:
   # ============================================
   # OpenSearch - BM25 Lexical Search
