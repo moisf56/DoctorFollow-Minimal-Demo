@@ -54,7 +54,7 @@ class OpenSearchStore:
     def _create_index_if_not_exists(self):
         """Create index with medical-optimized mapping"""
         if self.client.indices.exists(index=self.index_name):
-            print(f"✓ Index '{self.index_name}' already exists")
+            print(f"[OK] Index '{self.index_name}' already exists")
             return
 
         # Mapping optimized for medical text
@@ -97,7 +97,7 @@ class OpenSearchStore:
         }
 
         self.client.indices.create(index=self.index_name, body=mapping)
-        print(f"✓ Created index '{self.index_name}' with medical mapping")
+        print(f"[OK] Created index '{self.index_name}' with medical mapping")
 
     def index_chunks(self, chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -140,7 +140,7 @@ class OpenSearchStore:
             raise_on_error=False
         )
 
-        print(f"✓ Indexed {success} chunks, {len(failed)} failed")
+        print(f"[OK] Indexed {success} chunks, {len(failed)} failed")
 
         return {
             "indexed": success,
@@ -241,7 +241,7 @@ class OpenSearchStore:
         """Delete the index (use with caution!)"""
         if self.client.indices.exists(index=self.index_name):
             self.client.indices.delete(index=self.index_name)
-            print(f"✓ Deleted index '{self.index_name}'")
+            print(f"[OK] Deleted index '{self.index_name}'")
 
     def close(self):
         """Close OpenSearch connection"""
@@ -292,4 +292,4 @@ if __name__ == "__main__":
     print(json.dumps(stats, indent=2))
 
     store.close()
-    print("\n✓ Test complete!")
+    print("\n[OK] Test complete!")
