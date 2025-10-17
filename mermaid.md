@@ -54,18 +54,18 @@ flowchart TD
     end
 
     %% Graph & Context Layer
-    RRF --> GraphLookup[🧬 Knowledge Graph Lookup]
-    GraphLookup --> Context[📄 Context Builder (Chunks + Metadata + Citations)]
+    RRF --> GraphLookup["Knowledge Graph Lookup"]
+    GraphLookup --> Context["Context Builder - Chunks + Metadata + Citations"]
 
     %% LLM Orchestration
-    Context --> LLM[🧪 Medical LLM (e.g. Meditron, PubMedGPT)]
+    Context --> LLM["Medical LLM - e.g. Meditron, PubMedGPT"]
     Tools --> LLM
 
     %% Post-Processing
-    LLM --> ClaimDecompose[🧩 Claim Decomposition]
-    ClaimDecompose --> CitationLinking[🔗 Source Attribution (PMID / DOI)]
-    CitationLinking --> ContradictionCheck[⚠️ Contradiction Detection]
-    ContradictionCheck --> FinalAnswer[✅ Cited Answer Returned]
+    LLM --> ClaimDecompose["Claim Decomposition"]
+    ClaimDecompose --> CitationLinking["Source Attribution - PMID / DOI"]
+    CitationLinking --> ContradictionCheck["Contradiction Detection"]
+    ContradictionCheck --> FinalAnswer["Cited Answer Returned"]
 
     %% Return Path
     FinalAnswer --> User
