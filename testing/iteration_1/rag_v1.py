@@ -13,11 +13,17 @@ Future iterations will add:
 from typing import TypedDict, Annotated, Sequence, List
 from pathlib import Path
 import sys
+import os
+from dotenv import load_dotenv
 
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
 from langchain_aws import ChatBedrock
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
+
+# Load environment variables
+env_path = Path(__file__).parent.parent / ".env"
+load_dotenv(env_path)
 
 # Add parent directory for imports
 sys.path.append(str(Path(__file__).parent))
