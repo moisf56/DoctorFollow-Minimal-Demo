@@ -37,18 +37,18 @@ flowchart TD
 ```mermaid
 flowchart TD
     %% User Entry
-    User[👤 User Query] --> Guardrails{🛡️ Guardrails / PII Masking}
+    User["User Query"] --> Guardrails{"Guardrails / PII Masking"}
 
     %% Routing Decisions
-    Guardrails --> Router{🧭 Query Router}
+    Guardrails --> Router{"Query Router"}
     Router -->|Factual / Medical Question| RetrievalPipeline
     Router -->|Dose / DDI / Clinical Tool Use| Tools
-    Router -->|Unsafe| Blocked[❌ Refused Response]
+    Router -->|Unsafe| Blocked["Refused Response"]
 
     %% Retrieval Layer
     subgraph RetrievalPipeline[Retrieval Pipeline]
-        BM25[🔍 BM25 Search (OpenSearch)]
-        Embeddings[🧠 Semantic Search (pgvector)]
+        BM25["BM25 Search - OpenSearch"]
+        Embeddings["Semantic Search - pgvector"]
         BM25 --> RRF[RRF Fusion]
         Embeddings --> RRF
     end
