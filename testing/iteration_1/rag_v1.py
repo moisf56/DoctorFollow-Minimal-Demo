@@ -63,7 +63,7 @@ class MedicalRAGv1:
         opensearch_host: str = "localhost",
         opensearch_port: int = 9200,
         top_k: int = 5,
-        model_id: str = "meta.llama3-1-8b-instruct-v1:0"
+        model_id: str = "us.meta.llama4-scout-17b-instruct-v1:0"
     ):
         """
         Initialize RAG v1
