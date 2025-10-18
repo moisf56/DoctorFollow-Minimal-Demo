@@ -43,8 +43,8 @@ class Settings(BaseSettings):
     # Embedding models
     # Iteration 1: Not used (OpenSearch only)
     # Iteration 2+: Multilingual for Turkish → English
-    EMBEDDING_MODEL: str = "intfloat/multilingual-e5-large"
-    EMBEDDING_DIMENSION: int = 1024  # multilingual-e5-large dimension
+    EMBEDDING_MODEL: str = "intfloat/multilingual-e5-small"
+    EMBEDDING_DIMENSION: int = 384  # multilingual-e5-small dimension
 
     # Chunking parameters
     CHUNK_SIZE: int = 400
