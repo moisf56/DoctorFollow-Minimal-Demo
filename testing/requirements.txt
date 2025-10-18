@@ -28,7 +28,7 @@ neo4j==5.25.0
 # ============================================
 sentence-transformers==3.3.1
 transformers==4.46.3
-torch==2.5.1  # Required for sentence-transformers
+torch>=2.0.0  # Required for sentence-transformers
 
 # ============================================
 # PDF Processing
